@@ -55,3 +55,22 @@ def greatest_distance(stations: dict):
 
     return max_station1, max_station2, max_distance
 
+# Пример использования функции
+stations = get_station_data(r'C:\Users\user\AppData\Local\tmc\vscode\mooc-programming-23\part06-09_city_bikes\src\stations1.csv')
+station1, station2, greatest = greatest_distance(stations)
+print(station1, station2, greatest)
+
+# Пример использования функции
+stations = get_station_data(r'C:\Users\user\AppData\Local\tmc\vscode\mooc-programming-23\part06-09_city_bikes\src\stations1.csv')
+d = distance(stations, "Designmuseo", "Hietalahdentori")
+print(d)
+
+d = distance(stations, "Viiskulma", "Kaivopuisto")
+print(d)
+
+# Пример использования функции
+filename = r'C:\Users\user\AppData\Local\tmc\vscode\mooc-programming-23\part06-09_city_bikes\src\stations1.csv'
+stations = get_station_data(filename)
+
+for station, coordinates in stations.items():
+    print(f"{station}: {coordinates}")
