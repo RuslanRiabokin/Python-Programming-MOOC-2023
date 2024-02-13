@@ -1,0 +1,83 @@
+Programming exercise:
+Dictionary stored in a file
+Points:
+
+Please write a program which functions as a dictionary. The user can type in new entries or look for existing entries.
+
+The program should work as follows:
+
+Sample output
+1 - Add word, 2 - Search, 3 - Quit
+Function: 1
+The word in Finnish: auto
+The word in English: car
+Dictionary entry added
+1 - Add word, 2 - Search, 3 - Quit
+Function: 1
+The word in Finnish: roska
+The word in English: garbage
+Dictionary entry added
+1 - Add word, 2 - Search, 3 - Quit
+Function: 1
+The word in Finnish: laukku
+The word in English: bag
+Dictionary entry added
+1 - Add word, 2 - Search, 3 - Quit
+Function: 2
+Search term: bag
+roska - garbage
+laukku - bag
+1 - Add word, 2 - Search, 3 - Quit
+Function: 2
+Search term: car
+auto - car
+1 - Add word, 2 - Search, 3 - Quit
+Function: 2
+Search term: laukku
+laukku - bag
+1 - Add word, 2 - Search, 3 - Quit
+Function: 3
+Bye!
+
+The dictionary entries should be written to a file called dictionary.txt. The program should first read the contents of the file. New entries are written to the end of the file whenever they are added to the dictionary.
+
+The format of the data stored in the dictionary is up to you.
+
+NB: the automatic tests for this exercise may change the contents of the file. If you want to keep its contents, first make a copy of the file under a different name.
+
+NB2: this exercise doesn't ask you to write any functions, so you should not place any code within an if __name__ == "__main__" block.
+
+
+Словарь хранится в файле
+Точки :
+
+Напишите, пожалуйста, программу, которая работает как словарь. Пользователь может вводить новые записи или искать существующие записи.
+
+Программа должна работать следующим образом:
+
+Пример вывода
+1 – Добавить слово, 2 – Поиск, 3 – Выйти Функция: 1 
+Слово на финском языке: auto 
+Слово на английском языке: car 
+Добавлена ​​словарная запись 1 – Добавить слово, 2 – Поиск, 3 – Выйти Функция: 1 
+Слово на финском языке: roska 
+Слово на английском: мусор 
+Добавлена ​​словарная запись 1 - Добавить слово, 2 - Поиск, 3 - Выйти Функция: 1 
+Слово на финском: laukku 
+Слово на английском: мешок 
+Добавлена ​​словарная запись 1 - Добавить слово, 2 - Поиск, 3 - Функция выхода: 2 
+Поисковый запрос: сумка 
+роска - мусор лаукку - мешок 1 - Добавить слово, 2 - Поиск, 3 - Функция выхода: 2 Поисковый 
+запрос: car 
+auto - автомобиль 1 - Добавить слово, 2 - Поиск, 3 - Выйти из функции : 2 
+Поисковый запрос: laukku 
+laukku - сумка 1 - Добавить слово, 2 - Поиск, 3 - Выйти из функции: 3 
+Пока!
+
+Словарные статьи должны быть записаны в файл с именем dictionary.txt. Программа должна сначала прочитать содержимое файла. Новые записи записываются в конец файла всякий раз, когда они добавляются в словарь.
+
+Формат данных, хранящихся в словаре, зависит от вас.
+
+Примечание: автоматические тесты для этого упражнения могут изменить содержимое файла. Если вы хотите сохранить его содержимое, сначала сделайте копию файла под другим именем.
+
+Примечание 2: это упражнение не требует от вас написания каких-либо функций, поэтому вам не следует размещать какой-либо код внутри if __name__ == "__main__"блока.
