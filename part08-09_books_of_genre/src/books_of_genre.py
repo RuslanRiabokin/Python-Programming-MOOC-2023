@@ -16,3 +16,5 @@ class Book:
 # -----------------------------
 # Write your solution here
 # -----------------------------
+def books_of_genre(books: list, genre: str):
+    return [book for book in books if book.genre == genre]
