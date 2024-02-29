@@ -6,7 +6,7 @@ class Pet:
         self.description = description
 
     def __str__(self):
-        return f"{self.name} ({self.description})"
+        return f"{self.name}, a {self.description}"
 
 class Person:
     def __init__(self, name: str, pet: Pet):
@@ -14,4 +14,4 @@ class Person:
         self.pet = pet
 
     def __str__(self):
-        return self.name
+        return f"{self.name}, whose pal is {self.pet}"
