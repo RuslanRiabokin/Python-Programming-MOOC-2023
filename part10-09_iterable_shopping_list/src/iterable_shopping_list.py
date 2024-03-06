@@ -14,3 +14,15 @@ class ShoppingList:
 
     def number(self, n: int):
         return self.products[n - 1][1]
+
+    def __iter__(self):
+        self._index = 0
+        return self
+
+    def __next__(self):
+        if self._index < len(self.products):
+            product = self.products[self._index]
+            self._index += 1
+            return product
+        else:
+            raise StopIteration
