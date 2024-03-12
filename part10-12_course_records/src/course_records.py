@@ -2,17 +2,17 @@ class StudyTracker:
     def __init__(self):
         self.__courses = {}
 
-    def add_course(self, course: str, grade: int, credits: int):
-        if course not in self.__courses:
-            self.__courses[course] = {'grade': grade, 'credits': credits}
+    def add_course(self, name: str, grade: int, credits: int):
+        if name in self.__courses:
+            if grade > self.__courses[name]['grade']:
+                self.__courses[name]['grade'] = grade
         else:
-            # Update grade only if the new grade is higher
-            if grade > self.__courses[course]['grade']:
-                self.__courses[course]['grade'] = grade
+            self.__courses[name] = {'grade': grade, 'credits': credits}
 
-    def get_course_data(self, course: str):
-        if course in self.__courses:
-            return f"{course} ({self.__courses[course]['credits']} cr) grade {self.__courses[course]['grade']}"
+    def get_course_data(self, name: str):
+        if name in self.__courses:
+            course_info = self.__courses[name]
+            return f"{name} ({course_info['credits']} cr) grade {course_info['grade']}"
         else:
             return "no entry for this course"
 
@@ -20,47 +20,43 @@ class StudyTracker:
         total_courses = len(self.__courses)
         total_credits = sum(course['credits'] for course in self.__courses.values())
         mean_grade = sum(course['grade'] for course in self.__courses.values()) / total_courses if total_courses > 0 else 0
-
-        grade_distribution = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
+        grade_distribution = {5: 0, 4: 0, 3: 0, 2: 0, 1: 0}
         for course in self.__courses.values():
             grade_distribution[course['grade']] += 1
 
-        statistics = f"{total_courses} completed courses, a total of {total_credits} credits\nmean {mean_grade:.1f}\ngrade distribution"
+        statistics = f"{total_courses} completed courses, a total of {total_credits} credits\n"
+        statistics += f"mean {mean_grade:.1f}\n"
+        statistics += "grade distribution\n"
         for grade, count in grade_distribution.items():
-            if count > 0:
-                statistics += f"\n{grade}: {'x' * count}" if grade != 3 else f"\n{grade}:"
+            statistics += f"{grade}: {count * 'x'}\n"
         return statistics
 
 class StudyTrackerApplication:
     def __init__(self):
-        self.__study_tracker = StudyTracker()
-
-    def help(self):
-        print("commands: ")
-        print("0 exit")
-        print("1 add course")
-        print("2 get course data")
-        print("3 statistics")
+        self.__tracker = StudyTracker()
 
     def add_course(self):
-        course = input("course: ")
+        name = input("course: ")
         grade = int(input("grade: "))
         credits = int(input("credits: "))
-        self.__study_tracker.add_course(course, grade, credits)
+        self.__tracker.add_course(name, grade, credits)
 
     def get_course_data(self):
-        course = input("course: ")
-        data = self.__study_tracker.get_course_data(course)
-        print(data)
+        name = input("course: ")
+        course_info = self.__tracker.get_course_data(name)
+        print(course_info)
 
     def get_statistics(self):
-        statistics = self.__study_tracker.get_statistics()
+        statistics = self.__tracker.get_statistics()
         print(statistics)
 
     def execute(self):
-        self.help()
         while True:
             print("")
+            print("1 add course")
+            print("2 get course data")
+            print("3 statistics")
+            print("0 exit")
             command = input("command: ")
             if command == "0":
                 break
@@ -70,8 +66,6 @@ class StudyTrackerApplication:
                 self.get_course_data()
             elif command == "3":
                 self.get_statistics()
-            else:
-                self.help()
 
 # when testing, no code should be outside application except the following:
 application = StudyTrackerApplication()
