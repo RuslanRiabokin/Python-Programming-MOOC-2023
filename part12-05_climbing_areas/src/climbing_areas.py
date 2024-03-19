@@ -30,3 +30,8 @@ class ClimbingArea:
         hardest_route = self.hardest_route()
         return f"{self.name} {self.routes()} routes, hardest {hardest_route.grade}"
 
+def sort_by_number_of_routes(areas: list):
+    return sorted(areas, key=lambda area: area.routes())
+
+def sort_by_most_difficult(areas):
+    return sorted(areas, key=lambda area: area.hardest_route().grade, reverse=True)
