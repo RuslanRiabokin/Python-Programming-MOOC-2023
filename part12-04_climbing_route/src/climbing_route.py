@@ -15,3 +15,4 @@ def sort_by_length(routes: list):
 
 def sort_by_difficulty(routes: list):
     return sorted(routes, key=lambda route: (route.grade, route.length), reverse=True)
+    

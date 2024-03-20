@@ -35,3 +35,4 @@ def sort_by_number_of_routes(areas: list):
 
 def sort_by_most_difficult(areas):
     return sorted(areas, key=lambda area: area.hardest_route().grade, reverse=True)
+    
